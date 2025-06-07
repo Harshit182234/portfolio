@@ -308,7 +308,60 @@
             font-weight: 500;
         }
 
-        /* Contact Section */
+        /* Hero Profile Image */
+        .hero-profile {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            overflow: hidden;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            animation: float-profile 3s ease-in-out infinite;
+        }
+
+        .hero-profile img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+
+        .hero-profile:hover img {
+            transform: scale(1.1);
+        }
+
+        @keyframes float-profile {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* About Profile Image */
+        .about-profile {
+            width: 150px;
+            height: 150px;
+            border-radius: 20px;
+            overflow: hidden;
+            margin: 0 auto 2rem;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .about-profile img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+
+        .about-profile:hover {
+            transform: rotateY(10deg) rotateX(10deg);
+        }
+
+        .about-profile:hover img {
+            transform: scale(1.05);
+        }
         .contact-card {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
@@ -481,6 +534,9 @@
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
+                <div class="hero-profile">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Harshit Mahto">
+                </div>
                 <h1>Harshit Mahto</h1>
                 <p>AI Tools & Prompt Engineering Specialist</p>
                 <a href="#about" class="btn-custom">Discover My Journey</a>
@@ -498,6 +554,9 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="about-card fade-in-up">
+                        <div class="about-profile">
+                            <img src="https://images.unsplash.com/photo-1555952494-efd681c7e3f9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="AI Programming">
+                        </div>
                         <h3><i class="fas fa-graduation-cap me-2"></i>Education & Journey</h3>
                         <p>I'm currently pursuing my BSc IT degree from <strong>Dr. Shyama Prasad Mukherjee University</strong>, where I'm building a strong foundation in information technology and computer science.</p>
                         
@@ -523,7 +582,10 @@
                 <div class="col-lg-6 mb-4">
                     <div class="project-card fade-in-up">
                         <div class="project-img">
-                            <i class="fas fa-robot"></i>
+                            <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="AI Neural Network">
+                            <div class="overlay">
+                                <i class="fas fa-robot"></i>
+                            </div>
                         </div>
                         <div class="project-content">
                             <h4>Intelligent Prompt Engineering Framework</h4>
@@ -540,7 +602,10 @@
                 <div class="col-lg-6 mb-4">
                     <div class="project-card fade-in-up">
                         <div class="project-img">
-                            <i class="fas fa-chart-line"></i>
+                            <img src="https://images.unsplash.com/photo-1666875753105-c63a6f3bdc86?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Data Analytics AI">
+                            <div class="overlay">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
                         </div>
                         <div class="project-content">
                             <h4>AI-Powered Content Analytics Tool</h4>
