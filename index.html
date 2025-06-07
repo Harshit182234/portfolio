@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harshit Mahto - AI Developer Portfolio</title>
+    <title>Harshit Mahto - Portfolio</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -28,18 +28,38 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            opacity: 0.1;
         }
 
-        .bg-animation::before {
-            content: '';
+        .floating-shapes {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>') repeat;
-            animation: float 20s ease-in-out infinite;
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-shapes:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-shapes:nth-child(2) {
+            top: 60%;
+            left: 80%;
+            animation-delay: 2s;
+            width: 150px;
+            height: 150px;
+        }
+
+        .floating-shapes:nth-child(3) {
+            top: 80%;
+            left: 20%;
+            animation-delay: 4s;
+            width: 80px;
+            height: 80px;
         }
 
         @keyframes float {
@@ -47,133 +67,172 @@
             50% { transform: translateY(-20px); }
         }
 
-        /* Floating particles */
-        .particle {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            animation: particles 15s linear infinite;
-        }
-
-        @keyframes particles {
-            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
-        }
-
-        /* Glass morphism effect */
-        .glass {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 20px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        }
-
         /* Header Styles */
-        .header {
-            padding: 100px 0;
-            text-align: center;
+        .navbar {
+            background: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: #667eea !important;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9));
             color: white;
             position: relative;
         }
 
-        .header h1 {
-            font-size: 4rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            animation: slideInDown 1s ease-out;
-            background: linear-gradient(45deg, #fff, #f0f0f0);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+        .profile-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            animation: profileFloat 3s ease-in-out infinite;
         }
 
-        .header p {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-            animation: slideInUp 1s ease-out 0.5s both;
+        .profile-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        @keyframes profileFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .hero-content {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
             opacity: 0.9;
         }
 
-        .header .btn {
-            animation: zoomIn 1s ease-out 1s both;
-            padding: 12px 30px;
-            font-size: 1.1rem;
-            border-radius: 50px;
-            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+        .btn-custom {
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
             border: none;
-            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
-        .header .btn:hover {
+        .btn-custom:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
         }
 
         /* Section Styles */
         .section {
             padding: 80px 0;
+            background: white;
             position: relative;
+        }
+
+        .section:nth-child(even) {
+            background: #f8f9fa;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 60px;
-            color: white;
-        }
-
-        .section-title h2 {
-            font-size: 3rem;
-            font-weight: 600;
-            margin-bottom: 15px;
+            margin-bottom: 4rem;
             position: relative;
         }
 
-        .section-title h2::after {
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .section-title::after {
             content: '';
             position: absolute;
             bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
+            width: 60px;
             height: 4px;
-            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            background: linear-gradient(45deg, #667eea, #764ba2);
             border-radius: 2px;
         }
 
         /* About Section */
         .about-content {
-            color: white;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             line-height: 1.8;
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
+            color: #666;
         }
 
-        /* Projects Section */
-        .project-card {
-            margin-bottom: 30px;
+        .skill-badge {
+            display: inline-block;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            margin: 5px;
+            font-size: 0.9rem;
+            font-weight: 500;
             transition: all 0.3s ease;
-            height: 100%;
+        }
+
+        .skill-badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Project Cards */
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
         }
 
         .project-card:hover {
-            transform: translateY(-10px) scale(1.02);
-        }
-
-        .project-card .card {
-            border: none;
-            border-radius: 20px;
-            overflow: hidden;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
 
         .project-image {
@@ -184,215 +243,249 @@
             justify-content: center;
             font-size: 4rem;
             color: white;
-            position: relative;
-            overflow: hidden;
         }
 
-        .project-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            animation: shimmer 2s infinite;
+        .project-content {
+            padding: 2rem;
         }
 
-        @keyframes shimmer {
-            0% { left: -100%; }
-            100% { left: 100%; }
-        }
-
-        .card-body {
-            padding: 30px;
-            color: white;
-        }
-
-        .card-title {
+        .project-title {
             font-size: 1.5rem;
             font-weight: 600;
-            margin-bottom: 15px;
-            color: #fff;
+            color: #333;
+            margin-bottom: 1rem;
         }
 
-        .card-text {
-            margin-bottom: 20px;
-            opacity: 0.9;
+        .project-description {
+            color: #666;
             line-height: 1.6;
+            margin-bottom: 1.5rem;
         }
 
-        .btn-project {
-            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
-            border: none;
-            color: white;
-            padding: 10px 25px;
-            border-radius: 25px;
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-tag {
+            background: #e9ecef;
+            color: #495057;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-links a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            margin-right: 1rem;
             transition: all 0.3s ease;
         }
 
-        .btn-project:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
-            color: white;
+        .project-links a:hover {
+            color: #764ba2;
+            text-decoration: underline;
         }
 
         /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
         .contact-item {
             text-align: center;
-            margin-bottom: 30px;
-            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.2);
         }
 
         .contact-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 2rem;
-            color: white;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #feca57;
         }
 
-        .contact-icon:hover {
-            transform: translateY(-5px) rotate(360deg);
-            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+        .contact-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
         }
 
         .contact-link {
             color: white;
             text-decoration: none;
-            font-size: 1.1rem;
             transition: all 0.3s ease;
         }
 
         .contact-link:hover {
-            color: #ff6b6b;
-            text-decoration: none;
+            color: #feca57;
         }
 
         /* Animations */
-        @keyframes slideInDown {
+        @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(-50px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
                 transform: translateY(0);
-            }
-        }
-
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes zoomIn {
-            from {
-                opacity: 0;
-                transform: scale(0.5);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
             }
         }
 
         .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
+            animation: fadeInUp 0.8s ease-out;
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .header h1 {
+            .hero-title {
                 font-size: 2.5rem;
             }
             
-            .header p {
-                font-size: 1.2rem;
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section {
+                padding: 60px 0;
             }
             
             .section-title h2 {
                 font-size: 2rem;
             }
-            
-            .project-image {
+
+            .profile-image {
+                width: 250px;
+                height: 250px;
+                margin-bottom: 2rem;
+            }
+
+            .hero-section .row {
+                flex-direction: column-reverse;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .profile-image {
+                width: 200px;
                 height: 200px;
-                font-size: 3rem;
-            }
-            
-            .about-content {
-                font-size: 1.1rem;
             }
         }
 
-        /* Scroll indicator */
-        .scroll-indicator {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.1);
-            z-index: 1000;
+        /* Scroll animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
         }
 
-        .scroll-progress {
-            height: 100%;
-            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
-            width: 0%;
-            transition: width 0.1s ease;
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
-    <!-- Scroll Progress Indicator -->
-    <div class="scroll-indicator">
-        <div class="scroll-progress" id="scrollProgress"></div>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="floating-shapes"></div>
+        <div class="floating-shapes"></div>
+        <div class="floating-shapes"></div>
     </div>
 
-    <!-- Animated Background -->
-    <div class="bg-animation"></div>
-
-    <!-- Header Section -->
-    <header class="header">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <h1>Harshit Mahto</h1>
-            <p>AI Developer & Machine Learning Enthusiast</p>
-            <a href="#about" class="btn btn-primary">Discover My Journey</a>
+            <a class="navbar-brand" href="#home">Harshit Mahto</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </header>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="hero-content">
+                        <h1 class="hero-title">Harshit Mahto</h1>
+                        <p class="hero-subtitle">AI Tools Specialist & Prompt Engineering Enthusiast</p>
+                        <p class="mb-4">Passionate about artificial intelligence and currently pursuing BSc IT while gaining hands-on experience through internships in AI tools and prompt engineering.</p>
+                        <a href="#about" class="btn btn-custom btn-lg">Discover More</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="text-center">
+                        <img src="https://lh3.googleusercontent.com/pw/AP1GczOzZBfW0xQeqWO4FxZy6_YBLt5V4P3oNfJ8HwW0fNO_j9YBQ2C2gZXQKdvJVPKa6fF4zBn4t5pXVp9tR8_SQ5oWsYPFDJ3mN0dFgTkN6OV8gKD9Y2uHxLj_9YlJYF4EH8pOFQ=w500-h667-s-no-gm" alt="Harshit Mahto" class="profile-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- About Section -->
     <section id="about" class="section">
         <div class="container">
-            <div class="section-title fade-in">
+            <div class="section-title animate-on-scroll">
                 <h2>About Me</h2>
             </div>
-            <div class="glass p-5 fade-in">
-                <div class="about-content">
-                    <p>Hello! I'm Harshit Mahto, a passionate AI developer and machine learning enthusiast with a deep fascination for creating intelligent solutions that solve real-world problems. With expertise in cutting-edge AI technologies, I specialize in developing innovative tools that harness the power of artificial intelligence to transform how we interact with technology.</p>
-                    <br>
-                    <p>My journey in AI has led me to explore various domains including natural language processing, computer vision, and intelligent automation. I believe in the transformative potential of AI and strive to create tools that are not only technically sophisticated but also user-friendly and accessible to everyone.</p>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="about-content animate-on-scroll">
+                        <p class="lead text-center mb-4">
+                            I'm a dedicated BSc IT student at Dr. Shyama Prasad Mukherjee University, passionate about exploring the frontiers of artificial intelligence and machine learning.
+                        </p>
+                        <p class="mb-4">
+                            Currently, I'm gaining valuable experience through an internship focused on AI tools and prompt engineering. This hands-on experience has deepened my understanding of how AI can be leveraged to solve real-world problems and enhance productivity across various domains.
+                        </p>
+                        <p class="mb-4">
+                            My journey in technology is driven by curiosity and a commitment to continuous learning. I'm particularly interested in the intersection of AI and practical applications, exploring how emerging technologies can create meaningful impact.
+                        </p>
+                        
+                        <div class="text-center mt-5">
+                            <h5 class="mb-3">Skills & Technologies</h5>
+                            <div class="skills-container">
+                                <span class="skill-badge">AI Tools</span>
+                                <span class="skill-badge">Prompt Engineering</span>
+                                <span class="skill-badge">Machine Learning</span>
+                                <span class="skill-badge">Python</span>
+                                <span class="skill-badge">Data Analysis</span>
+                                <span class="skill-badge">Web Development</span>
+                                <span class="skill-badge">Research</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -401,48 +494,60 @@
     <!-- Projects Section -->
     <section id="projects" class="section">
         <div class="container">
-            <div class="section-title fade-in">
-                <h2>Featured AI Projects</h2>
+            <div class="section-title animate-on-scroll">
+                <h2>Featured Projects</h2>
             </div>
             <div class="row">
-                <div class="col-lg-6 col-md-12">
-                    <div class="project-card fade-in">
-                        <div class="card">
-                            <div class="project-image">
-                                <i class="fas fa-robot"></i>
+                <div class="col-lg-6">
+                    <div class="project-card animate-on-scroll">
+                        <div class="project-image">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Intelligent Prompt Optimizer</h3>
+                            <p class="project-description">
+                                Developed an advanced AI tool that analyzes and optimizes prompts for better AI model responses. This tool uses natural language processing techniques to suggest improvements and predict response quality, helping users craft more effective prompts for various AI applications.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">NLP</span>
+                                <span class="tech-tag">Machine Learning</span>
+                                <span class="tech-tag">API Integration</span>
                             </div>
-                            <div class="card-body">
-                                <h5 class="card-title">SmartChat AI Assistant</h5>
-                                <p class="card-text">An intelligent conversational AI that understands context and provides personalized responses. Built with advanced NLP models and deployed with real-time chat capabilities, featuring sentiment analysis and multi-language support.</p>
-                                <div class="d-flex gap-2 flex-wrap">
-                                    <span class="badge bg-info">Python</span>
-                                    <span class="badge bg-info">TensorFlow</span>
-                                    <span class="badge bg-info">NLP</span>
-                                    <span class="badge bg-info">FastAPI</span>
-                                </div>
-                                <br>
-                                <a href="#" class="btn btn-project">View Project</a>
+                            <div class="project-links">
+                                <a href="https://github.com/Harshit182234" target="_blank">
+                                    <i class="fab fa-github"></i> View Code
+                                </a>
+                                <a href="#" onclick="alert('Demo coming soon!')">
+                                    <i class="fas fa-external-link-alt"></i> Live Demo
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-12">
-                    <div class="project-card fade-in">
-                        <div class="card">
-                            <div class="project-image">
-                                <i class="fas fa-eye"></i>
+                <div class="col-lg-6">
+                    <div class="project-card animate-on-scroll">
+                        <div class="project-image">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">AI Content Generation Suite</h3>
+                            <p class="project-description">
+                                Created a comprehensive suite of AI-powered content generation tools including text summarization, creative writing assistance, and automated content optimization. The platform integrates multiple AI models to provide versatile content creation capabilities for various use cases.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">AI APIs</span>
+                                <span class="tech-tag">Node.js</span>
                             </div>
-                            <div class="card-body">
-                                <h5 class="card-title">VisionAI Content Analyzer</h5>
-                                <p class="card-text">A powerful computer vision tool that automatically analyzes and categorizes visual content. Features object detection, image classification, and content moderation capabilities with real-time processing and API integration.</p>
-                                <div class="d-flex gap-2 flex-wrap">
-                                    <span class="badge bg-success">PyTorch</span>
-                                    <span class="badge bg-success">OpenCV</span>
-                                    <span class="badge bg-success">YOLO</span>
-                                    <span class="badge bg-success">Docker</span>
-                                </div>
-                                <br>
-                                <a href="#" class="btn btn-project">View Project</a>
+                            <div class="project-links">
+                                <a href="https://github.com/Harshit182234" target="_blank">
+                                    <i class="fab fa-github"></i> View Code
+                                </a>
+                                <a href="#" onclick="alert('Demo coming soon!')">
+                                    <i class="fas fa-external-link-alt"></i> Live Demo
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -452,44 +557,55 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="section">
+    <section id="contact" class="contact-section">
         <div class="container">
-            <div class="section-title fade-in">
-                <h2>Let's Connect</h2>
+            <div class="section-title animate-on-scroll">
+                <h2 style="color: white;">Get In Touch</h2>
+                <p style="color: rgba(255, 255, 255, 0.8); margin-top: 1rem;">
+                    Let's connect and explore opportunities in AI and technology
+                </p>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-4 col-md-6">
-                    <div class="contact-item fade-in">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="contact-item animate-on-scroll">
                         <div class="contact-icon">
                             <i class="fas fa-envelope"></i>
                         </div>
-                        <h5>Email</h5>
-                        <a href="mailto:harshit.mahto@example.com" class="contact-link">harshit.mahto@example.com</a>
+                        <h4 class="contact-title">Email</h4>
+                        <a href="mailto:mahtoharshit5@gmail.com" class="contact-link">
+                            mahtoharshit5@gmail.com
+                        </a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="contact-item fade-in">
+                <div class="col-lg-4">
+                    <div class="contact-item animate-on-scroll">
                         <div class="contact-icon">
                             <i class="fab fa-linkedin"></i>
                         </div>
-                        <h5>LinkedIn</h5>
-                        <a href="https://linkedin.com/in/harshitmahto" target="_blank" class="contact-link">linkedin.com/in/harshitmahto</a>
+                        <h4 class="contact-title">LinkedIn</h4>
+                        <a href="https://www.linkedin.com/in/harshit-mahto-41aab6322" target="_blank" class="contact-link">
+                            Connect with me
+                        </a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="contact-item fade-in">
+                <div class="col-lg-4">
+                    <div class="contact-item animate-on-scroll">
                         <div class="contact-icon">
                             <i class="fab fa-github"></i>
                         </div>
-                        <h5>GitHub</h5>
-                        <a href="https://github.com/harshitmahto" target="_blank" class="contact-link">github.com/harshitmahto</a>
+                        <h4 class="contact-title">GitHub</h4>
+                        <a href="https://github.com/Harshit182234" target="_blank" class="contact-link">
+                            View my projects
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    
     <script>
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -505,13 +621,23 @@
             });
         });
 
-        // Fade in animation on scroll
+        // Navbar background change on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // Animate elements on scroll
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         };
 
-        const observer = new IntersectionObserver((entries) => {
+        const observer = new IntersectionObserver(function(entries) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
@@ -519,46 +645,42 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.fade-in').forEach(el => {
+        // Observe all elements with animate-on-scroll class
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
             observer.observe(el);
         });
 
-        // Scroll progress indicator
-        window.addEventListener('scroll', () => {
-            const scrollTop = window.pageYOffset;
-            const docHeight = document.body.offsetHeight - window.innerHeight;
-            const scrollPercent = (scrollTop / docHeight) * 100;
-            document.getElementById('scrollProgress').style.width = scrollPercent + '%';
+        // Add some interactive hover effects
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
         });
 
-        // Create floating particles
-        function createParticle() {
-            const particle = document.createElement('div');
-            particle.className = 'particle';
-            particle.style.left = Math.random() * 100 + 'vw';
-            particle.style.width = particle.style.height = Math.random() * 4 + 2 + 'px';
-            particle.style.animationDuration = Math.random() * 10 + 10 + 's';
-            particle.style.animationDelay = Math.random() * 2 + 's';
-            document.body.appendChild(particle);
+        // Active nav link highlighting
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
 
-            setTimeout(() => {
-                particle.remove();
-            }, 15000);
-        }
-
-        // Generate particles periodically
-        setInterval(createParticle, 300);
-
-        // Add some initial particles
-        for (let i = 0; i < 10; i++) {
-            setTimeout(createParticle, i * 100);
-        }
-
-        // Parallax effect for background
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const bg = document.querySelector('.bg-animation');
-            bg.style.transform = `translateY(${scrolled * 0.5}px)`;
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
         });
     </script>
 </body>
